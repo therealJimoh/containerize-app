@@ -10,6 +10,6 @@ test:
 
 lint:
 #	hadolint Dockerfile
-	pylint --disable=R,C,W1203 flask_app/web.py
+	pylint --disable=R,C,W1203 web.py
 
 all: install lint test
