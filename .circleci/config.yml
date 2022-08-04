@@ -17,6 +17,10 @@ jobs:
             source ~/.venv/bin/activate
             make install
       - run:
+          name: Install hadolint
+          command: |
+            wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64
+      - run:
           name: Run Lint
           command: |
             source ~/.venv/bin/activate
