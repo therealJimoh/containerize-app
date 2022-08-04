@@ -1,0 +1,28 @@
+version: 2.1
+
+
+orbs:
+  python: circleci/python@1.5.0
+
+jobs:
+  build-and-test: 
+    docker:
+      - image: cimg/python:3.10.2
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: |
+            python3 -m venv ~/.venv
+            source ~/.venv/bin/activate
+            make install
+      - run:
+          name: Run Lint
+          command: |
+            source ~/.venv/bin/activate
+            make lint
+
+workflows:
+  ContainerizeApp: 
+    jobs:
+      - build-and-test
