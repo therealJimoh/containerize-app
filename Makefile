@@ -20,7 +20,7 @@ validate-circleci:
 # 	circleci local execute
 
 lint:
-	hadolint Dockerfile
+#	hadolint Dockerfile
 	pylint --disable=R,C,W1203 containerize-app.py
 
 all: install lint test
